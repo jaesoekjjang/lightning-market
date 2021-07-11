@@ -10,11 +10,11 @@ const ImagesWrapper = styled.div`
   border-color:;
   width: 1024px;
   height: 1400px;
-  margin: 200px auto;
+  margin: 0 auto;
 `
-const Imgs = styled.div`
-  border:1px solid black;
-`
+// const Imgs = styled.div`
+//   border:1px solid black;
+// `
 const ImgBlockGrid = () => {
 
   const merchandises = {

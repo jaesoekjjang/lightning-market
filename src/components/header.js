@@ -1,5 +1,5 @@
 import React from 'react';
-import styled,{css} from 'styled-components';
+import styled, { css } from 'styled-components';
 import Logo from './logo'
 import Search from './search'
 import Utility from './utility'
@@ -9,17 +9,18 @@ const StyledHeader = styled.header`
     margin: 0 auto;
     padding-top: 45px;
     align-items: center;
-
     display: flex;
     justify-content: space-between;
+    border-bottom:var(--border-default);
+    
 `;
 
 const Header = () => {
     return <React.Fragment>
         <StyledHeader>
-            <Logo/>
-            <Search/>
-            <Utility/>
+            <Logo />
+            <Search />
+            <Utility />
         </StyledHeader>
     </React.Fragment>
 }

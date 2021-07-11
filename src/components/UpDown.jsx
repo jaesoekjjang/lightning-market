@@ -43,8 +43,10 @@ const UpDown = memo(() => {
     } else if (position < bodyHeight * 0.5) {
       upRef.current.style.display = 'inline';
       btmRef.current.style.display = 'inline';
+      upRef.current.style.borderBottom = '0.5px solid rgb(216, 214, 214)';
     } else {
       upRef.current.style.display = 'inline';
+      upRef.current.style.border = 'none';
       btmRef.current.style.display = 'none';
     }
   }, [position])
