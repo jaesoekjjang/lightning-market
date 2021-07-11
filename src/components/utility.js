@@ -1,5 +1,5 @@
 import React from 'react';
-import styled,{css} from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const StyledUtility = styled.ul`
     list-style: none;
@@ -14,8 +14,6 @@ const UtilityList = styled.li`
     & > * {
         color: black;
     }
-
-
 `;
 
 
