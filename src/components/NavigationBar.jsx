@@ -43,7 +43,6 @@ const NavigationBar = () => {
 
   return (
     <React.Fragment>
-      {jjim}
       <Wrapper className="wrapper">
         <ThumbSpan onClick={jjimup}> Thumb </ThumbSpan>
         <NavigationItems className='navigation-bar'>

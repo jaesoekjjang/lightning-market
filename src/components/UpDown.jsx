@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, memo } from 'react';
 import styled from 'styled-components';
 
 
@@ -8,7 +8,6 @@ const UpDownBtn = styled.span`
   justify-content: space-around;
   `
 
-//요소 각각에 attribute 적용 안됨. e.g) border-bottom:1px solid black;
 const UpBtn = styled.span`
   height:2rem;
   border-bottom:0.5px solid rgb(216, 214, 214);
@@ -24,7 +23,7 @@ const IconSize = styled.img`
   width: 0.9rem;
 `
 
-const UpDown = () => {
+const UpDown = memo(() => {
 
 
   const [position, setPosition] = useState(0);
@@ -72,6 +71,6 @@ const UpDown = () => {
       </UpDownBtn>
     </React.Fragment>
   )
-}
+});
 
 export default UpDown;
