@@ -15,7 +15,7 @@ const Ul = styled.ul`
   display: flex;
   flex-direction:row;
   justify-content: space-around;
-  List-style:none;
+  list-style:none;
 `
 
 const Li = styled.li`

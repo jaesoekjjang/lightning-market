@@ -14,8 +14,6 @@ const UtilityList = styled.li`
     & > * {
         color: black;
     }
-
-
 `;
 
 
