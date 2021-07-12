@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { recentSrchWord, hotSrchWord } from '../action/index'
@@ -89,13 +89,14 @@ const StyleUl = styled.ul`
     color:black;
 
     & > *{
-        margin-top: 0.6rem;
+        margin: 1rem;
+        margin-top:1.5rem;
     }
 `
 
 const Search = () => {
 
-    const [srchValue, setSrchValue] = useState('');
+    const [srchValue, setSrchValue] = useState('init');
     const [srchHistory, setSrchHistory] = useState([]);
     const [rcntList, setRcntList] = useState('');
 
@@ -118,26 +119,43 @@ const Search = () => {
         document.querySelector('#recentSrchWrap').classList.toggle('blind');
     }
 
+    let historyList = localStorage.getItem('srchHistory');
+    let parsedList;
+    let historyItem;
+
+    if (!localStorage.getItem('srchHistory')) {
+        parsedList = [];
+    } else {
+        parsedList = JSON.parse(historyList);
+    };
+
     const handleSubmit = (e) => {
         // e.preventDefault();
-        console.log(srchValue);
-        setSrchHistory((prevHistory) => {
-            return [...prevHistory, srchValue]
-        })
-        setSrchValue('');
-
-        console.log(srchValue);
-        const stringified = JSON.stringify(srchHistory);
+        parsedList.push(srchValue);
+        const stringified = JSON.stringify(parsedList);
         localStorage.setItem('srchHistory', stringified)
     }
 
-    const historyList = srchHistory.map((v, i) => { return <RecentList key={i} val={v} /> })
+
+    if (localStorage.getItem('srchHistory')) {
+        historyItem = parsedList.map((v, i) => { return <RecentList key={i} val={v} /> })
+    } else {
+        historyItem = <RecentList val={'최근 검색 기록이 없습니다.'} />
+    }
+
+    const handleInputChage = (e) => {
+        setSrchValue(e.target.value);
+    }
+
+    useEffect((e) =>
+        console.log(srchValue)
+        , [srchValue])
 
     return <React.Fragment>
         <StyledSrchWrap onFocus={inputClick} onBlur={inputClick}>
             <StyledSrchBar >
                 <form onSubmit={handleSubmit}>
-                    <StyledSrchBox onChange={(e) => setSrchValue(e.target.value)} id="searchBox" type="text" placeholder="상품명, 지역명,@상점명 입력" auotoComplete="off" />
+                    <StyledSrchBox onChange={handleInputChage} id="searchBox" type="text" placeholder="상품명, 지역명,@상점명 입력" autoComplete="off" />
                     <a href="#">
                         <StyledSrchIcon src="search-solid.svg" alt="돋보기 이미지" />
                     </a>
@@ -150,7 +168,7 @@ const Search = () => {
                         <StyledSrchWord href="#" activate={recentWord} onClick={clickRecent} className="srchWords">
                             <span>최근검색어</span>
                             <StyleUl>
-                                {historyList}
+                                {historyItem}
                             </StyleUl>
                         </StyledSrchWord>
                         <StyledSrchWord href="#" activate={hotWord} onClick={clickHot} className="srchWords">인기검색어</StyledSrchWord>
