@@ -11,6 +11,7 @@ const ImagesWrapper = styled.div`
   width: 1024px;
   height: 1400px;
   margin: 0 auto;
+  padding-top: 100px;
 `
 // const Imgs = styled.div`
 //   border:1px solid black;

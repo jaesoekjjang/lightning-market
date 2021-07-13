@@ -22,10 +22,13 @@ const NavigationItems = styled.div`
   border:1px solid rgb(216, 214, 214);
   margin:0.5rem 1rem;
   }
+
+  position: absolute;
 `;
 
 const ThumbSpan = styled.span`
-  line-height: 3rem;
+  line-height: 3rem; 
+  
 `
 
 
@@ -43,14 +46,14 @@ const NavigationBar = () => {
 
   return (
     <React.Fragment>
-      <Wrapper className="wrapper">
+      {/* <Wrapper className="wrapper"> */}
         <ThumbSpan onClick={jjimup}> Thumb </ThumbSpan>
         <NavigationItems className='navigation-bar'>
           <Jjim jjim={jjim} />
           <RecentVisit />
           <UpDown />
         </NavigationItems>
-      </Wrapper>
+      {/* </Wrapper> */}
     </React.Fragment>
   )
 }
