@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const WrapperDiv = styled.div`
   padding: 0 1rem;
   position: relative;
+  z-index:1;
 
   }
   &>ul{
@@ -18,7 +19,8 @@ const WrapperDiv = styled.div`
   &>ul::before{
     content:'';
     display:block;
-    height:2.2rem;
+    height:2.31rem;
+
 
   }
 
