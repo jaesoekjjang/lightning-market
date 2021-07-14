@@ -93,6 +93,9 @@ const StyleUl = styled.ul`
         margin-top:1.5rem;
     }
 `
+const MaxWidthSpan = styled.span`
+    width:205px;
+`
 
 const Search = () => {
 
@@ -166,7 +169,7 @@ const Search = () => {
                 <SrchWordsLstWrapDiv>
                     <WrapDiv className="srchWordWrap">
                         <StyledSrchWord href="#" activate={recentWord} onClick={clickRecent} className="srchWords">
-                            <span>최근검색어</span>
+                            <MaxWidthSpan>최근검색어</MaxWidthSpan>
                             <StyleUl>
                                 {historyItem}
                             </StyleUl>

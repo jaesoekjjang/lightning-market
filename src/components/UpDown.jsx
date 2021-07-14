@@ -40,7 +40,7 @@ const UpDown = memo(() => {
     if (position <= bodyHeight * 0.25) {
       upRef.current.style.display = 'none';
       btmRef.current.style.display = 'inline';
-    } else if (position < bodyHeight * 0.5) {
+    } else if (position <= bodyHeight * 0.5) {     //화살표 달달거림 버그 
       upRef.current.style.display = 'inline';
       btmRef.current.style.display = 'inline';
       upRef.current.style.borderBottom = '0.5px solid rgb(216, 214, 214)';
