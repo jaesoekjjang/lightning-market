@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components';
 import StyledLi from './StyledLi';
 
 const StyledWrapDiv = styled.div`
+    margin-top: 2rem;
+    border-top:var(--border-default);  
     border-bottom:var(--border-default);  
 `
 

@@ -6,8 +6,7 @@ const MyPage = () => {
   return (
     <div>
       <Header />
-      <CategoryBar />
-      <h1>This is My page</h1>
+      <h1>This is My</h1>
     </div>
   )
 }

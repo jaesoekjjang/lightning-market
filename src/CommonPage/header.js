@@ -3,14 +3,17 @@ import styled, { css } from 'styled-components';
 import Logo from './logo'
 import Search from './search'
 import Utility from './utility'
+import CategoryBar from './categoryBar';
+import NavigationBar from './NavigationBar';
 
 const StyledHeader = styled.header`    
     padding-top: 45px;
     padding-bottom: 30px;
-    // align-items: center;
-    // display: flex;
-    // justify-content: space-between;
-    border-bottom:var(--border-default);  
+    position:sticky;
+    top:0;
+    // border-bottom:var(--border-default);
+    background-color:white;
+    z-index:1;
 `;
 
 const StyledDiv = styled.div`
@@ -29,6 +32,8 @@ const Header = () => {
                 <Search />
                 <Utility />
             </StyledDiv>
+            <CategoryBar />
+            <NavigationBar />
         </StyledHeader>
     </React.Fragment>
 }

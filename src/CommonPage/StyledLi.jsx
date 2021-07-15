@@ -6,7 +6,13 @@ const WrapperDiv = styled.div`
   position: relative;
   z-index:1;
 
+
   }
+
+  &>li{
+  cursor:pointer;
+  }
+
   &>ul{
     position:absolute;
     list-style:none;
@@ -28,12 +34,13 @@ const WrapperDiv = styled.div`
     bottom: -700%;
     opacity: 1;
     &>li:first-child{
-      padding-top:3rem;
+    padding-top:2.5rem;
     }
   }
 
   &> ul>li{
     padding:0.5rem 0;
+    cursor: pointer;
   }
 `
 

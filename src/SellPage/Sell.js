@@ -1,7 +1,8 @@
 import React from 'react'
 import Header from '../CommonPage/header';
-import CategoryBar from '../CommonPage/categoryBar';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import SellRouter from './SellRouter';
 
 const SellPageWrapper = styled.div`
   margin: 0 auto;
@@ -13,9 +14,12 @@ const Sell = () => {
   return (
     <React.Fragment>
       <Header />
-      <CategoryBar />
       <SellPageWrapper className="wrapper">
-        <h1>This is Sell Page</h1>
+        <ul>
+          <li><Link to='/sell/post'>상품등록</Link></li>
+          <li><Link to='/sell/manage'>상품관리</Link></li>
+          <li><Link to >구매/판매 내역</Link></li>
+        </ul>
       </SellPageWrapper>
     </React.Fragment>
   )
