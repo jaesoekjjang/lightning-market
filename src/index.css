@@ -29,6 +29,10 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
 .utilityAfter::after {
   content: "";
   width: 1px;
@@ -48,3 +52,6 @@ a {
   overflow: hidden;
 }
 
+.titlePadding {
+  padding-top: 8px;
+}

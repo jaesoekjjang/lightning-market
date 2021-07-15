@@ -3,6 +3,7 @@ import Header from '../CommonPage/header';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import SellRouter from './SellRouter';
+import ProductRegister from './ProductRegister';
 
 const SellPageWrapper = styled.div`
   margin: 0 auto;
@@ -21,6 +22,7 @@ const Sell = () => {
           <li><Link to >구매/판매 내역</Link></li>
         </ul>
       </SellPageWrapper>
+      <ProductRegister/>
     </React.Fragment>
   )
 }
