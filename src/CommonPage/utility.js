@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
+
 
 const StyledUtility = styled.ul`
     list-style: none;
@@ -22,11 +24,11 @@ const Utility = () => {
 
     return <React.Fragment>
         <StyledUtility>
-            <UtilityList className="utilityAfter"><a href="#">판매하기</a></UtilityList>
-            <UtilityList className="utilityAfter"><a href="#">내상점</a></UtilityList>
+            <UtilityList className="utilityAfter"><Link to='/sell'>판매하기</Link></UtilityList>
+            <UtilityList className="utilityAfter"><Link to='/mypage'>내상점</Link></UtilityList>
             <UtilityList><button>벼락톡</button></UtilityList>
         </StyledUtility>
-    </React.Fragment>
+    </React.Fragment >
 }
 
 export default Utility;

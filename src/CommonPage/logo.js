@@ -1,9 +1,10 @@
 import React from 'react';
-import styled,{css} from 'styled-components';
+import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 
 
-const StyledLogoBox = styled.a`
+const StyledLogoBox = styled.span`
     font-size: 1.7rem;
     font-weight: bold;
     color: var(--main-yellow);
@@ -21,11 +22,13 @@ const StyledLogoImg = styled.img`
 const Logo = () => {
 
     return <React.Fragment>
-            <StyledLogoBox href="#">
-                <StyledLogoImg src="thunder.png" alt="로고 이미지"/>
+        <Link to='/'>
+            <StyledLogoBox>
+                <StyledLogoImg src="thunder.png" alt="로고 이미지" />
                 벼락장터
             </StyledLogoBox>
-        </React.Fragment>
+        </Link>
+    </React.Fragment>
 }
-    
+
 export default Logo;
