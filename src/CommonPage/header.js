@@ -4,7 +4,7 @@ import Logo from './logo'
 import Search from './search'
 import Utility from './utility'
 import CategoryBar from './categoryBar';
-//import NavigationBar from './NavigationBar';
+import NavigationBar from './NavigationBar';
 
 const StyledHeader = styled.header`    
     padding-top: 45px;
@@ -33,7 +33,7 @@ const Header = () => {
                 <Utility />
             </StyledDiv>
             <CategoryBar />
-            {/* <NavigationBar /> */}
+            <NavigationBar />
         </StyledHeader>
     </React.Fragment>
 }

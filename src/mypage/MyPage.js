@@ -1,13 +1,13 @@
 import React from 'react'
-import Header from '../CommonPage/header';
-import CategoryBar from '../CommonPage/categoryBar';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
-const MyPage = () => {
+// import Header from '../CommonPage/header';
+// import CategoryBar from '../CommonPage/categoryBar';
+
+
+const MyPage = ({ isLoggedIn }) => {
   return (
-    <div>
-      <Header />
-      <h1>This is My</h1>
-    </div>
+    <h1>My Page</h1>
   )
 }
 

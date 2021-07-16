@@ -4,9 +4,9 @@ import AppRouter from './AppRouter';
 
 
 function App() {
-
+  const [isLoggedIn, setIslogggedIn] = useState(false);
   return (
-    <AppRouter />
+    <AppRouter isLoggedIn={isLoggedIn} />
   )
 };
 
