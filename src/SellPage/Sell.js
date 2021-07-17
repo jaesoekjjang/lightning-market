@@ -1,9 +1,9 @@
 import React from 'react'
-import Header from '../CommonPage/header';
+import { HashRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import SellRouter from './SellRouter';
-import ProductRegister from './ProductRegister';
+import Post from './components/Post';
+import Manage from './components/Manage';
+import Header from '../CommonPage/header';
 
 const SellPageWrapper = styled.div`
   margin: 0 auto;
@@ -13,17 +13,22 @@ const SellPageWrapper = styled.div`
 
 const Sell = () => {
   return (
-    <React.Fragment>
-      <Header />
-      <SellPageWrapper className="wrapper">
-        <ul>
-          <li><Link to='/sell/post'>상품등록</Link></li>
-          <li><Link to='/sell/manage'>상품관리</Link></li>
-          <li><Link to >구매/판매 내역</Link></li>
-        </ul>
-      </SellPageWrapper>
-      <ProductRegister/>
-    </React.Fragment>
+    <Router>
+      <React.Fragment>
+        <Header />
+        <SellPageWrapper className="wrapper">
+          <ul>
+            <li><Link to='/sell/post'>상품등록</Link></li>
+            <li><Link to='/sell/manage'>상품관리</Link></li>
+            <li><Link to='/sell/history' >구매/판매 내역</Link></li>
+          </ul>
+        </SellPageWrapper>
+      </React.Fragment>
+      <Switch>
+        <Route path='/sell/post'><Post /></Route>
+        <Route path='/sell/manage'><Manage /></Route>
+      </Switch>
+    </Router>
   )
 }
 

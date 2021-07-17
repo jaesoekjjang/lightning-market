@@ -23,7 +23,6 @@ import "slick-carousel/slick/slick-theme.css";
 const WrapDiv = styled.div`
     width: 1024px;
     margin: 0 auto;
-    z-index:0;
 `
 
 export default class Carousel extends Component {
