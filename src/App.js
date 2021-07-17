@@ -5,24 +5,30 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "LOG_IN":
       return {
-        isLoggedIn: true
+        ...state,
+        isLoggedIn: true,
       }
     case "LOG_OUT":
       return {
-        isLoggedIn: false
+        ...state,
+        isLoggedIn: false,
       }
   }
+}
+
+const initialState = {
+  isLoggedIn: false,
 }
 
 export const UserDispatch = React.createContext(null);
 
 function App() {
 
-  const [isLoggedIn, dispatch] = useReducer(reducer, false)
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   return (
     <UserDispatch.Provider value={dispatch}>
-      <AppRouter isLoggedIn={isLoggedIn} />
+      <AppRouter isLoggedIn={state.isLoggedIn} />
     </UserDispatch.Provider>
   )
 };

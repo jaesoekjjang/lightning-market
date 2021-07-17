@@ -45,7 +45,7 @@ const WrapperDiv = styled.div`
 
 
 const StyledLi = ({ val, sub }) => {
-  const subCategories = sub.map((v) => <li>{v}</li>)
+  const subCategories = sub.map((v) => <li key={v}>{v}</li>)
 
   return (
     <WrapperDiv>

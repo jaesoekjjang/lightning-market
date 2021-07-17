@@ -58,12 +58,6 @@ const Login = () => {
     })
   }
 
-  const Logout = () => {
-    dispatch({
-      type: "LOG_OUT"
-    })
-  }
-
   console.log(auth.currentUser);
   return (
     <div>
