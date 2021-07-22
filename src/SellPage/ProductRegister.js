@@ -60,6 +60,11 @@ const ProductTitle = styled.input`
     height: 3rem;
     padding: 0px 1rem;
     width: 100%;
+    font-size: 16px;
+    
+    &:focus {
+        outline: 1px solid black;
+    }
 `
 
 const ProductWarning = styled.div`
@@ -78,6 +83,16 @@ const CharNumber = styled.div`
     margin-left: 1.5rem;
     font-size: 1rem;
     text-align: right;
+`
+const CategoryWrap = styled.div`
+    flex: 1 1 0;
+`
+const CategorySubWrap = styled.div`
+    display: flex;
+    width: 100%;
+    height: 19rem;
+    overflow: hidden;
+    border: 1px solid rgb(220, 219, 228);
 `
 
 
@@ -130,7 +145,17 @@ const ProductRegister = ()=> {
                             상품명을 2자 이상 입력해주세요.
                         </ProductWarning>
                     </ProductWrap>
-                    
+                </InfoLi>
+                <InfoLi>
+                    <InfoSubTitle>
+                        카테고리
+                        <Asterisk>*</Asterisk>
+                    </InfoSubTitle>
+                    <CategoryWrap>
+                        <CategorySubWrap>
+
+                        </CategorySubWrap>
+                    </CategoryWrap>
                 </InfoLi>
             </InfoWrap>
 
