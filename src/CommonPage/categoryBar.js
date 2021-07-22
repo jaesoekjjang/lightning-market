@@ -36,7 +36,7 @@ let categories = {
 let mappedCategories = []
 
 for (let i in categories) {
-    mappedCategories.push(<StyledLi val={i} sub={categories[i]} />)
+    mappedCategories.push(<StyledLi key={i} val={i} sub={categories[i]} />)
 }
 
 

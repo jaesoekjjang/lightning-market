@@ -1,12 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import AppRouter from './AppRouter';
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "LOG_IN":
+      return {
+        ...state,
+        isLoggedIn: true,
+      }
+    case "LOG_OUT":
+      return {
+        ...state,
+        isLoggedIn: false,
+      }
+  }
+}
 
+const initialState = {
+  isLoggedIn: false,
+}
+
+export const UserDispatch = React.createContext(null);
 
 function App() {
-  const [isLoggedIn, setIslogggedIn] = useState(false);
+
+  const [state, dispatch] = useReducer(reducer, initialState)
+
   return (
-    <AppRouter isLoggedIn={isLoggedIn} />
+    <UserDispatch.Provider value={dispatch}>
+      <AppRouter isLoggedIn={state.isLoggedIn} />
+    </UserDispatch.Provider>
   )
 };
 

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
+import {useSelector, useDispatch} from 'react-redux';
+import {productWarningMsg} from '../action/index';
 
 const RegisterWrapDiv = styled.section`
     margin: 0 auto;
@@ -40,7 +42,14 @@ const InfoSubTitle = styled.div`
 const Asterisk = styled.span`
     color: rgb(255, 80, 88);
 `
-
+const ProductWrap = styled.div`
+    flex: 1 1 0%
+`
+const Product = styled.div`
+    width: 100%;
+    display: flex;
+    align-items: center;
+`
 const ProductTitleWrap = styled.div`
     display:flex;
     width: 100%;
@@ -51,10 +60,58 @@ const ProductTitle = styled.input`
     height: 3rem;
     padding: 0px 1rem;
     width: 100%;
+    font-size: 16px;
+    
+    &:focus {
+        outline: 1px solid black;
+    }
+`
+
+const ProductWarning = styled.div`
+    color: rgb(245, 126, 0);
+    font-size: 14px;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+
+    ${({ activate }) => {
+        return activate ? 'display: flex' : 'display: none';
+    }}
+`
+
+const CharNumber = styled.div`
+    margin-left: 1.5rem;
+    font-size: 1rem;
+    text-align: right;
+`
+const CategoryWrap = styled.div`
+    flex: 1 1 0;
+`
+const CategorySubWrap = styled.div`
+    display: flex;
+    width: 100%;
+    height: 19rem;
+    overflow: hidden;
+    border: 1px solid rgb(220, 219, 228);
 `
 
 
 const ProductRegister = ()=> {
+    const dispatch = useDispatch();
+    const warningMsg = useSelector(state => state.productWarningMsg);
+
+
+    const [productTitleLength, setproductTitleLength] = React.useState(0);
+
+    const charLength = (e) => {
+        setproductTitleLength(e.target.value.length);
+        if (e.target.value.length < 2) {
+            dispatch(productWarningMsg(true));
+        } else {
+            dispatch(productWarningMsg(false));
+        }
+    } 
+
 
     return <React.Fragment>
         <RegisterWrapDiv>
@@ -75,11 +132,30 @@ const ProductRegister = ()=> {
                         제목
                         <Asterisk>*</Asterisk>
                     </InfoSubTitle>
-                    <div>
-                        <ProductTitleWrap>
-                            <ProductTitle type="text" placeholder="상품 제목을 입력해주세요."/>
-                        </ProductTitleWrap>
-                    </div>
+                    <ProductWrap>
+                        <Product>
+                            <ProductTitleWrap>
+                                <ProductTitle type="text" placeholder="상품 제목을 입력해주세요." maxLength="40" onInput={charLength}/>
+                            </ProductTitleWrap>
+                            <CharNumber>
+                                {productTitleLength}/40
+                            </CharNumber>
+                        </Product>
+                        <ProductWarning activate={warningMsg}>
+                            상품명을 2자 이상 입력해주세요.
+                        </ProductWarning>
+                    </ProductWrap>
+                </InfoLi>
+                <InfoLi>
+                    <InfoSubTitle>
+                        카테고리
+                        <Asterisk>*</Asterisk>
+                    </InfoSubTitle>
+                    <CategoryWrap>
+                        <CategorySubWrap>
+
+                        </CategorySubWrap>
+                    </CategoryWrap>
                 </InfoLi>
             </InfoWrap>
 
