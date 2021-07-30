@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
-import { recentSrchWord, hotSrchWord } from '../action/index'
+import { recentSrchWord, hotSrchWord } from '../reducer/index'
 import RecentList from './RecentList';
 
 const StyledSrchWrap = styled.div`
